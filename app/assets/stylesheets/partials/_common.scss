@@ -38,17 +38,15 @@ body {
 .sidebar_embed {
   width: 30%;
   float: right;
-  margin: 50px;
+  margin: 5px 10px;
   text-align:center;
   @media(max-width:$tablet) {
-    display: block;
-    margin: 0 auto;
-    float: none;
-    width: 100%;
+    display: none;
   } 
   img {
     width: 90%;
     padding-bottom: 10px;
+    max-width: 350px;
   }
   i {
     color: $red;

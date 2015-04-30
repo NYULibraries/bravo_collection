@@ -14,13 +14,25 @@
     position: relative;
     width: 60%;
     float: left;
-    @media(max-width:$laptop) {
+    padding-bottom: 42.25%;
+    padding-top: 25px;
+    min-height: 350px;
+    @media(max-width:$desktop) {
       width: 100%;
       float: none;
+      padding-bottom: 56.25%;
+      min-height: 0;
     }
-
     img {
       width: 100%;
+    }
+    // FLOWPLAYER
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
   .video_metadata {
@@ -29,7 +41,7 @@
     float: right;
     padding: 2%;
     font-size: .90em;
-    @media(max-width:$laptop) {
+    @media(max-width:$desktop) {
       width: 100%;
       float: none;
     }
@@ -68,3 +80,4 @@
    }
   }
 }
+

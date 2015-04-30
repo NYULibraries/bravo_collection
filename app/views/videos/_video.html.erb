@@ -2,8 +2,9 @@
   <div class='video_wrapper'>
     <div class='image_wrapper'>
       <%= link_to image_tag(video.thumbnail, class: "video_img"), video_path(video.slug) %>
-      <p class="float-left"><%= link_to video.name.upcase, video_path(video.slug) %></p>
-      <p class="float-right"><%= video.duration %></p>
+      <p><%= link_to video.name.upcase, video_path(video.slug) %></p>
+      <p class="float-left"><%= link_to video.title.upcase, video_path(video.slug) %></p>
+      <p class="float-right clearfix"><%= video.duration %></p>
     </div>
   </div>
 </div>

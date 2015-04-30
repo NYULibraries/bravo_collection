@@ -7,4 +7,3 @@ if ($(window).height() + 100 < $(document).height()) {
     }   
   }); 
 }
-

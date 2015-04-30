@@ -15,9 +15,10 @@
       <%= @film.duration %> min
     </p>
   </div>
-
+  <% if @related_video.any? %>
     <div class='video_grid'>
       <h4>VIDEOS FROM <em><%= @film.title.upcase %></em></h4>
       <%= render @related_video  %>
-  </div>
+    </div>
+  <% end %> 
 </div>

@@ -9,7 +9,14 @@ class VideosController < ApplicationController
   # GET /videos/1
   def show
     @video = Video.friendly.find(params[:id])
-    @related_video = Video.where(film_id: @video.film_id).where.not(id: @video.id).limit(6)
+    same_interviewee = Video.where(name: @video.name).where.not(id: @video.id).limit(12)
+    if same_interviewee.count < 12
+      grid_limit = 12 - same_interviewee.count
+      other_video = Video.where(film_id: @video.film_id).where.not(id: @video.id, name: @video.name).limit(grid_limit).order("RAND()")
+      @related_video = (same_interviewee + other_video).uniq
+    else
+      @related_video = same_interviewee
+    end
   end
 
   # GET /videos/new

@@ -1,5 +1,5 @@
 ActiveAdmin.register Video do
-  permit_params :title, :description, :duration, :name, :embed, :film_id, :collection_id, :slug, :thumbnail, :transcript
+  permit_params :title, :description, :duration, :name, :embed, :film_id, :collection_id, :slug, :thumbnail, :transcript, :year, :refid
   active_admin_import
 
   batch_action :vhcr do |ids|
@@ -28,6 +28,7 @@ ActiveAdmin.register Video do
   index do
     selectable_column
     column :name
+    column :refid
     column :title
     column :film
     column :collection
@@ -42,6 +43,8 @@ ActiveAdmin.register Video do
     inputs 'Details' do
       input :name, :hint => "The person or people being interviewed, ex. 'Angela Davis'"
       input :title, :hint => "Short, overall subject of the interview, will appear after the name, ex.'Cuban Artists in the 50s'"
+      input :year
+      input :refid
       input :duration, :hint => "Enter as HH:MM:SS, ex. '01:13:02'"
       input :embed, :input_html => { :rows => 5, :cols => 10  }
       input :thumbnail, :as => :file, :hint => object.thumbnail.present? ? image_tag(object.thumbnail.url) : content_tag(:span, "no image uploaded yet")

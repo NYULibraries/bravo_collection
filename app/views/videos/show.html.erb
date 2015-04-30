@@ -1,5 +1,5 @@
 <% provide(:title, @video.name + ": " + @video.title) %>
-<div class='container'>
+<div class='container-fluid'>
   <div class="bread">
     <span class='bread_first'><%= @video.name.upcase %>: </span><span class='bread_second'> <%= @video.title.upcase %></span>
   </div>
@@ -9,21 +9,27 @@
         <%= @video.embed.html_safe %>
       </div>
       <div class="video_metadata">
-        <div class="video_title"><%= @video.name.upcase %>: <%= @video.title.upcase %> &nbsp; &nbsp; (<%= @video.duration %>)</div>
-        <div class="video_description"><%= @video.description.html_safe %></div>
+        <div class="video_title"><%= @video.name.upcase %>: <%= @video.title.upcase %></div>
+        <div class="video_description">
+          <%= @video.description.html_safe %>
+        </div>
+          <p class='float-left'><%= @video.year %></p> 
+          <p class='float-right'>Duration: <%= @video.duration %></p>
         <% if @video.transcript? %>
           <p class="float-right"><strong><%= link_to "TRANSCRIPT", @video.transcript.url %></strong></p>
         <% end %>
         <ul class="video_social">
-         <li><a onclick="window.open('http://twitter.com/share?text=<%= @video.name+ ": " + @video.title %>','C2G','menubar=no,width=550,height=250,toolbar=no'); return false;" href="#"><%= icon('twitter') %></i></a></li>
+         <li><a onclick="window.open('http://twitter.com/share','C2G','menubar=no,width=550,height=250,toolbar=no'); return false;" href="#"><%= icon('twitter') %></i></a></li>
          <li><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;"><%= icon('facebook') %></i></a></li>
          <li><a href="mailto:?subject=Estela%20Bravo%20Collection&body=<%= @video.name+ ": " + @video.title + "%0A" + request.original_url %>"><%= icon('envelope') %></a></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class='video_grid'>
-    <h4>RELATED VIDEOS</h4>
-      <%= render @related_video  %>
+  <% if @related_video.any? %>
+    <div class='video_grid'>
+      <h4>RELATED VIDEOS</h4>
+        <%= render @related_video  %>
+      </div>
     </div>
-  </div>
+  <% end %>

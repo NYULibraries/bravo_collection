@@ -11,6 +11,9 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recent Videos" do
           table_for Video.limit(5) do
+            column :name do |video|
+              link_to video.name, [:admin, video]
+            end
             column :title do |video|
               link_to video.title, [:admin, video]
             end

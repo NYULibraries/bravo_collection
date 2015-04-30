@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   belongs_to :film
   belongs_to :collection
-  validates :title, :name, :description, :embed, :thumbnail_file_name, :presence => true
+  validates :title, :name, :description, :embed, :presence => true
   extend FriendlyId
   friendly_id :friendly_name, use: :slugged
   has_attached_file :thumbnail, :styles => { :small => "300x300>" }, :default_url => "/system/videos/default_video.jpg"

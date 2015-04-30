@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.friendly.find(params[:id])
-    @videos = Video.where(collection_id: @collection.id)
+    @videos = Video.where(collection_id: @collection.id).order(name: :asc, refid: :asc)
   end
 
   private

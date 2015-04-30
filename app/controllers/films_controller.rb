@@ -6,7 +6,7 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.friendly.find(params[:id])
-    @related_video = Film.friendly.find(params[:id]).videos
+    @related_video = Film.friendly.find(params[:id]).videos.order(name: :asc, refid: :asc)
   end
 
   private
