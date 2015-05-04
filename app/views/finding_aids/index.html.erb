@@ -9,9 +9,7 @@
       <h5>CONTENTS</h5>
       <ul>
         <li><%= icon('angle-right') %> <a href="#about">About</a></li>
-        <% @series.each do |s| %>
-          <li><%= icon('angle-right') %> <%= link_to s.title, anchor: "series_#{s.id}" %></li>
-        <% end %>
+        <li><%= icon('angle-right') %> <a href="http://dlib.nyu.edu/findingaids/html/tamwag/tam_616/">Finding Aid</a></li>
       </ul>
     </div>
     <div class='col-xxs col-xs-8 fa_header'>
@@ -42,7 +40,7 @@
   </div>
 </div>
 <!-- END ABOUT GREY -->
-<% @finding_aid.attributes.except("id", "header", "creator", "title", "dates_inclusive", "dates_bulk", "abstract", "quantity", "location_note", "language", "call_phrase", "created_at", "updated_at", "slug", "image_file_name", "image_updated_at", "image_content_type", "image_file_size").each do |k,v| %>
+<% @finding_aid.attributes.except("id", "header", "creator", "title", "dates_inclusive", "dates_bulk", "abstract", "quantity", "location_note", "language", "call_phrase", "created_at", "updated_at", "slug", "image_file_name", "image_updated_at", "image_content_type", "image_file_size", "historical_note", "scope_note", "access_points", "arrangement", "administrative_information").each do |k,v| %>
   <div class='container-fluid <%= cycle '', 'grey_section' %>'>
     <div class='row'>
       <div class='col-xs-12'>
