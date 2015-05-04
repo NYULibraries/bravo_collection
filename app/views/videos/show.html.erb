@@ -13,10 +13,11 @@
         <div class="video_description">
           <%= @video.description.html_safe %>
         </div>
+          <p class="float-right"><strong><%= link_to "TRANSCRIPT", @video.transcript.url %></strong></p>
+          <div class='clearfix'></div>
           <p class='float-left'><%= @video.year %></p> 
           <p class='float-right'>Duration: <%= @video.duration %></p>
         <% if @video.transcript? %>
-          <p class="float-right"><strong><%= link_to "TRANSCRIPT", @video.transcript.url %></strong></p>
         <% end %>
         <ul class="video_social">
          <li><a onclick="window.open('http://twitter.com/share','C2G','menubar=no,width=550,height=250,toolbar=no'); return false;" href="#"><%= icon('twitter') %></i></a></li>
