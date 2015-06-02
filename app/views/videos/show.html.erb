@@ -6,7 +6,7 @@
   <div class='page_intro'>
     <div class='video_player'>
       <div class="embed_wrapper">
-        <%= @video.embed.html_safe %>
+        <iframe src="<%= @video.embed.html_safe %>" height="350" width="100%" allowfullscreen="" frameborder="0"></iframe>
       </div>
       <div class="video_metadata">
         <div class="video_title"><%= @video.name.upcase %>: <%= @video.title.upcase %></div>
