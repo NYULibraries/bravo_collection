@@ -10,9 +10,9 @@ gem 'delayed_job_active_record', '4.0.3'
 gem 'devise', '3.4.1'
 gem 'font-awesome-sass', '4.3.1'
 gem 'friendly_id', '5.1.0'
-gem 'jquery-rails', '4.0.3'
+gem 'jquery-rails', '~> 4.0.4'
 gem 'mysql2', '0.3.18'
-gem 'paperclip', '4.2.1'
+gem 'paperclip', '5.2.0'
 gem 'rails', '~> 4.2.0'
 gem 'sass', '~> 3.4'
 gem 'simple_form', '3.1.0'
@@ -21,9 +21,9 @@ gem 'uglifier', '2.7.0'
 gem 'seed_dump'
 
 ## NYU gems
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
-gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.0'
+gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
 
 group :development do
   gem 'populator'
