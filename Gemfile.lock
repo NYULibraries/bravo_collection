@@ -165,7 +165,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    ffi (1.9.17)
+    ffi (1.9.25)
     figs (2.1.1)
       git (~> 1.2)
       rake (~> 10.1)
