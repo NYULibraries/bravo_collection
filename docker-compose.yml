@@ -1,37 +1,57 @@
-version: '3'
-services:
+version: '3.7'
+x-build: &build
+  build:
+    context: .
+    cache_from:
+      - bravo
+  image: bravo
+  tty: true
+  stdin_open: true
+x-test-env: &test-env
+  <<: *build
+  environment:
+    RAILS_ENV: test
+    BRAVO_COLLECTION_DB_DATABASE: bravo_test
+    CI:
+    CODECLIMATE_REPO_TOKEN:
+    COVERALLS_REPO_TOKEN:
+x-dev-env: &dev-env
+  <<: *build
 
+services:
   dev:
-    build: .
-    volumes:
-      - .:/app
+    <<: *dev-env
     ports:
       - "3000:3000"
-    environment:
-      BRAVO_COLLECTION_DB_HOST: db
-      BRAVO_COLLECTION_DB_DATABASE: bravo
-      BRAVO_COLLECTION_DB_USER: root
-      BRAVO_COLLECTION_DB_PASSWORD:
-      RAILS_ENV: development
-    command: "tail -f /dev/null"
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
     depends_on:
       - setup_dbs
+    volumes:
+      - .:/app
+
+  test:
+    <<: *test-env
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake"]
+    depends_on:
+      - setup_test_dbs
+    volumes:
+      - .:/app
+
+  setup_test_dbs:
+    <<: *test-env
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
+    depends_on:
+      - db
 
   setup_dbs:
-    build: .
-    environment:
-      BRAVO_COLLECTION_DB_HOST: db
-      BRAVO_COLLECTION_DB_DATABASE: bravo
-      BRAVO_COLLECTION_DB_USER: root
-      BRAVO_COLLECTION_DB_PASSWORD:
-      RAILS_ENV: development
-    command: bash -c "sleep 5; rake db:setup"
+    <<: *dev-env
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
     depends_on:
       - db
 
   db:
-    image: library/mysql:5.6.22
-    expose:
-      - "3306"
+    image: mysql:5.7.22
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    expose:
+      - "3306"

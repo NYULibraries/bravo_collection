@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'therubyracer', '~> 0.12.3', platforms: :ruby
+group :no_docker do
+    gem 'therubyracer', '~> 0.12.3', platforms: :ruby
+end
 gem 'bootstrap-sass', '3.3.7'
 gem 'ckeditor', '4.1.1'
 gem 'font-awesome-sass', '~> 5.8.1'
