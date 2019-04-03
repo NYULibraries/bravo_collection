@@ -13,6 +13,7 @@ gem 'rails', '~> 5.2.3'
 gem 'sass', '~> 3.4'
 gem 'simple_form', '~> 4.1.0'
 gem 'uglifier', '~> 4.1.20'
+gem 'bootsnap'
 
 ## NYU gems
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
