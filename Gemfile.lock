@@ -112,6 +112,10 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     libv8 (3.16.14.19)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -171,6 +175,7 @@ GEM
       ffi (~> 1.0)
     ref (2.0.0)
     require_all (1.5.0)
+    ruby_dep (1.5.0)
     rvm-capistrano (1.5.6)
       capistrano (~> 2.15.4)
     sass (3.7.3)
@@ -217,6 +222,7 @@ DEPENDENCIES
   formaggio!
   friendly_id (~> 5.2.5)
   jquery-rails (~> 4.3.3)
+  listen
   mysql2 (~> 0.4.10)
   nyulibraries_errors!
   rails (~> 5.2.3)

@@ -7,16 +7,12 @@ x-build: &build
   image: bravo
   tty: true
   stdin_open: true
-x-test-env: &test-env
-  <<: *build
-  environment:
-    RAILS_ENV: test
-    BRAVO_COLLECTION_DB_DATABASE: bravo_test
-    CI:
-    CODECLIMATE_REPO_TOKEN:
-    COVERALLS_REPO_TOKEN:
 x-dev-env: &dev-env
   <<: *build
+  environment:
+    BRAVO_COLLECTION_DB_PASSWORD:
+  env_file:
+    - test.env
 
 services:
   dev:
@@ -28,20 +24,6 @@ services:
       - setup_dbs
     volumes:
       - .:/app
-
-  test:
-    <<: *test-env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake"]
-    depends_on:
-      - setup_test_dbs
-    volumes:
-      - .:/app
-
-  setup_test_dbs:
-    <<: *test-env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
-    depends_on:
-      - db
 
   setup_dbs:
     <<: *dev-env

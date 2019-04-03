@@ -12,13 +12,6 @@ development: &development
   pool: 2
   timeout: 5000
 
-staging:
-  <<: *development
-
-test:
-  <<: *mysql2
-  database: bravo_test
-
 production:
   <<: *mysql2
   host:     <%= ENV['BRAVO_COLLECTION_DB_HOST']     %>
