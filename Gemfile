@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.11.1'
 
-gem 'mysql2', '~> 0.3.18'
+gem 'mysql2', '~> 0.4.10'
 
 # gem 'activeadmin', github: 'gregbell/active_admin', tag: 'v1.0.0.pre1'
 # gem 'active_admin_import' , '2.1.2'
