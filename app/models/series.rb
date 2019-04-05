@@ -1,4 +1,4 @@
-class Series < ActiveRecord::Base
+class Series < ApplicationRecord
   belongs_to :finding_aid
   validates :title, :table, :presence => true
 

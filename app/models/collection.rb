@@ -1,4 +1,4 @@
-class Collection < ActiveRecord::Base
+class Collection < ApplicationRecord
   has_many :videos
   validates :title, :description, :presence => true
 
