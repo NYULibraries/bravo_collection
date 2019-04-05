@@ -20,6 +20,7 @@ gem 'devise', '~> 4.6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip', '~> 5.2.0'
 gem 'simple_form', '~> 4.1.0'
+gem 'listen', '~> 3.1.5'
 # gem 'turbolinks', '2.5.3'
 # gem 'seed_dump'
 

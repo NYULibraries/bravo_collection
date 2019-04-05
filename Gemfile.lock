@@ -174,6 +174,10 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     libv8 (3.16.14.19)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -249,6 +253,7 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    ruby_dep (1.5.0)
     rubyzip (1.2.2)
     rvm-capistrano (1.5.6)
       capistrano (~> 2.15.4)
@@ -303,6 +308,7 @@ DEPENDENCIES
   formaggio!
   friendly_id (~> 5.1.0)
   jquery-rails (~> 4.2.0)
+  listen (~> 3.1.5)
   mysql2 (~> 0.4.10)
   nyulibraries_errors!
   paperclip (~> 5.2.0)
