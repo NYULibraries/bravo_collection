@@ -24,7 +24,7 @@ ActiveAdmin.register Film do
       input :thumbnail, :as => :file, :hint => object.thumbnail.present? ? image_tag(object.thumbnail.url) : content_tag(:span, "no image uploaded yet")
       input :year
       input :duration, :hint => "Enter number of minutes, just the digits, ex. 90"
-      input :description, :as => :ckeditor
+      input :description
       li "Created at #{f.object.created_at}" unless f.object.new_record?
       actions
     end

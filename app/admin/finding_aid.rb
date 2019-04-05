@@ -26,17 +26,17 @@ ActiveAdmin.register FindingAid do
       input :image, :as => :file, :hint => object.image.present? ? image_tag(object.image.url) : content_tag(:span, "no image uploaded yet")
       input :dates_inclusive
       input :dates_bulk
-      input :abstract, :as => :ckeditor
-      input :quantity, :as => :ckeditor
-      input :location_note, :as => :ckeditor
+      input :abstract
+      input :quantity
+      input :location_note
       input :language
       input :call_phrase
-      input :header, :as => :ckeditor 
-      input :historical_note, :as => :ckeditor
-      input :scope_note, :as => :ckeditor
-      input :arrangement, :as => :ckeditor
-      input :access_points, :as => :ckeditor
-      input :administrative_information, :as => :ckeditor 
+      input :header 
+      input :historical_note
+      input :scope_note
+      input :arrangement
+      input :access_points
+      input :administrative_information 
 
       actions
     end
