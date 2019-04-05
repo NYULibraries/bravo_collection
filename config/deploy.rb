@@ -1,6 +1,6 @@
 require 'formaggio/capistrano'
 set :app_title, "bravo_collection"
-set :rvm_ruby_string, "2.6.2"
+set :rvm_ruby_string, "2.5.5"
 
 set :new_relic_environments, []
 

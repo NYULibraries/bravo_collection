@@ -1,4 +1,4 @@
-FROM ruby:2.6.2-alpine
+FROM ruby:2.5.5-alpine
 
 ENV DOCKER true
 ENV INSTALL_PATH /app
@@ -8,7 +8,7 @@ ENV BUNDLE_PATH=/usr/local/bundle \
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 ENV USER docker
 
-ENV RUN_PACKAGES ca-certificates fontconfig mariadb-dev nodejs tzdata
+ENV RUN_PACKAGES bash ca-certificates fontconfig mariadb-dev nodejs tzdata
 ENV BUILD_PACKAGES ruby-dev build-base linux-headers mysql-dev nodejs-npm python git
 
 RUN addgroup -g 2000 $USER && \
