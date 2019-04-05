@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
 
-  mount Ckeditor::Engine => '/ckeditor'
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  # mount Ckeditor::Engine => '/ckeditor'
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # ActiveAdmin.routes(self)
 
   resources :collections, except: [:new, :create, :edit, :update, :destroy]
   resources :documents, except: [:new, :create, :edit, :update, :destroy]
