@@ -16,10 +16,30 @@ GIT
 
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_errors.git
-  revision: 16c7a14892e439c48e6fc1f8ce261c3cbe635e4c
-  tag: v1.0.1
+  revision: 54d8def9c219b2829a1b5284970e698fd4725cb7
+  tag: v1.1.1
   specs:
-    nyulibraries_errors (1.0.1)
+    nyulibraries_errors (1.1.1)
+      rails (>= 4)
+
+GIT
+  remote: https://github.com/gregbell/active_admin.git
+  revision: cd10bc76af898a35991c5f59f11175dbfe3b1e73
+  tag: v1.0.0.pre1
+  specs:
+    activeadmin (1.0.0.pre1)
+      arbre (~> 1.0, >= 1.0.2)
+      bourbon
+      coffee-rails
+      formtastic (~> 3.1)
+      formtastic_i18n
+      inherited_resources (~> 1.6)
+      jquery-rails
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.15)
+      rails (>= 3.2, < 5.0)
+      ransack (~> 1.3)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -43,6 +63,10 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_admin_import (2.1.2)
+      activeadmin (>= 0.6.0)
+      activerecord-import (~> 0.4, >= 0.4.1)
+      rubyzip (~> 1.0, >= 1.0.0)
     activejob (4.2.11.1)
       activesupport (= 4.2.11.1)
       globalid (>= 0.3.0)
@@ -53,17 +77,24 @@ GEM
       activemodel (= 4.2.11.1)
       activesupport (= 4.2.11.1)
       arel (~> 6.0)
+    activerecord-import (0.28.2)
+      activerecord (>= 3.2)
     activesupport (4.2.11.1)
       i18n (~> 0.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    arbre (1.2.0)
+      activesupport (>= 3.0.0)
     arel (6.0.4)
     autoprefixer-rails (9.5.0)
       execjs
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bourbon (5.1.0)
+      sass (~> 3.4)
+      thor (~> 0.19)
     builder (3.2.3)
     cap_git_tools (0.9.1)
       capistrano (~> 2.0)
@@ -79,6 +110,13 @@ GEM
     climate_control (0.2.0)
     cocaine (0.6.0)
       terrapin (= 0.6.0)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubis (2.7.0)
@@ -89,19 +127,35 @@ GEM
       rake (~> 10.1)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
+    formtastic (3.1.5)
+      actionpack (>= 3.2.13)
+    formtastic_i18n (0.6.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     git (1.5.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    has_scope (0.7.2)
+      actionpack (>= 4.1)
+      activesupport (>= 4.1)
     highline (2.0.1)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    inherited_resources (1.9.0)
+      actionpack (>= 4.2, < 5.3)
+      has_scope (~> 0.6)
+      railties (>= 4.2, < 5.3)
+      responders
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (2.2.0)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     libv8 (3.16.14.19)
     loofah (2.2.3)
       crass (~> 1.0.2)
@@ -151,11 +205,20 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
+    ransack (1.8.10)
+      actionpack (>= 3.0, < 5.2)
+      activerecord (>= 3.0, < 5.2)
+      activesupport (>= 3.0, < 5.2)
+      i18n
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     ref (2.0.0)
     require_all (1.5.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
+    rubyzip (1.2.2)
     rvm-capistrano (1.5.6)
       capistrano (~> 2.15.4)
     sass (3.7.4)
@@ -163,6 +226,12 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    sass-rails (5.0.7)
+      railties (>= 4.0.0, < 6)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     simple_form (3.1.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -180,6 +249,7 @@ GEM
       ref
     thor (0.20.3)
     thread_safe (0.3.6)
+    tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -190,6 +260,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_import (= 2.1.2)
+  activeadmin!
   bootstrap-sass (= 3.3.7)
   ckeditor (= 4.1.1)
   font-awesome-sass (~> 4.3.1)
@@ -199,7 +271,7 @@ DEPENDENCIES
   mysql2 (~> 0.4.10)
   nyulibraries_errors!
   rails (~> 4.2.11.1)
-  sass (~> 3.4)
+  sass-rails (~> 5.0.7)
   simple_form (~> 3.1.0)
   therubyracer (~> 0.12.3)
   uglifier (~> 2.7.0)

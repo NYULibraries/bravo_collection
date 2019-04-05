@@ -4,9 +4,11 @@ gem 'rails', '~> 4.2.11.1'
 
 gem 'mysql2', '~> 0.4.10'
 
-# gem 'activeadmin', github: 'gregbell/active_admin', tag: 'v1.0.0.pre1'
-# gem 'active_admin_import' , '2.1.2'
-gem 'sass', '~> 3.4'
+gem 'activeadmin', github: 'gregbell/active_admin', tag: 'v1.0.0.pre1'
+gem 'active_admin_import' , '2.1.2'
+
+# gem 'sass', '~> 3.4'
+gem 'sass-rails', '~> 5.0.7'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-sass', '~> 4.3.1'
 gem 'uglifier', '~> 2.7.0'
@@ -28,7 +30,7 @@ end
 ## NYU gems
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
-gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
+gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
 # group :development do
 #   gem 'populator'
