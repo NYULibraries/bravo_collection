@@ -1,4 +1,4 @@
-class CollapsedMigration < ActiveRecord::Migration
+class CollapsedMigration < ActiveRecord::Migration[4.2]
   def change
     create_table "active_admin_comments", force: :cascade do |t|
       t.string   "namespace",     limit: 255

@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.11.1'
+gem 'rails', '~> 5.2.3'
 
 gem 'mysql2', '~> 0.4.10'
 
-gem 'activeadmin', github: 'gregbell/active_admin', tag: 'v1.0.0.pre1'
+gem 'activeadmin', github: 'gregbell/active_admin', tag: 'v1.4.3'
 gem 'active_admin_import' , '2.1.2'
 
 # gem 'sass', '~> 3.4'
@@ -12,14 +12,15 @@ gem 'sass-rails', '~> 5.0.7'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-sass', '~> 4.3.1'
 gem 'uglifier', '~> 2.7.0'
-gem 'jquery-rails', '~> 4.0.4'
+gem 'jquery-rails', '~> 4.2.0'
 # gem 'cancan', '1.6.10'
-gem 'ckeditor', '~> 4.1.1'
+# gem 'ckeditor', '~> 5.0.0'
 # gem 'delayed_job_active_record', '4.0.3'
 gem 'devise', '~> 4.6'
 gem 'friendly_id', '~> 5.1.0'
 gem 'paperclip', '~> 5.2.0'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form', '~> 4.1.0'
+gem 'listen', '~> 3.1.5'
 # gem 'turbolinks', '2.5.3'
 # gem 'seed_dump'
 

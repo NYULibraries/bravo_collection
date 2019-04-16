@@ -4,7 +4,7 @@
     <span class='bread_first'>FILMS:</span><span class='bread_second'> <em><%= @film.title.upcase %></em></span>
   </div>
   <div class='page_intro'>
-    <%= image_tag(@film.thumbnail, class: "description_img") %>
+    <%= image_tag(@film.thumbnail.url, class: "description_img") %>
     <p>
       <%= @film.description.html_safe %>
     </p>

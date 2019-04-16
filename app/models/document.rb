@@ -1,4 +1,4 @@
-class Document < ActiveRecord::Base
+class Document < ApplicationRecord
   validates :title, :description, :document_file_file_name,  :presence => true
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged

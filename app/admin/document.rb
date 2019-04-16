@@ -20,7 +20,7 @@ ActiveAdmin.register Document do
     inputs 'Details' do
       input :title
       input :slug
-      input :description, :as => :ckeditor
+      input :description
       input :document_file, :as => :file, :hint => object.document_file.present? ? image_tag(object.document_file.url) : content_tag(:span, "no image uploaded yet")
       li "Created at #{f.object.created_at}" unless f.object.new_record?
       actions

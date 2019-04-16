@@ -1,4 +1,4 @@
-class Video < ActiveRecord::Base
+class Video < ApplicationRecord
   belongs_to :film
   belongs_to :collection
   validates :title, :name, :description, :embed, :presence => true

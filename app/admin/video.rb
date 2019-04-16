@@ -51,7 +51,7 @@ ActiveAdmin.register Video do
       input :transcript, :as => :file, :hint => object.transcript.present? ? object.transcript.original_filename : content_tag(:span, "no transcript uploaded yet")
       input :film
       input :collection
-      input :description, :as => :ckeditor
+      input :description
       li "Created at #{f.object.created_at}" unless f.object.new_record?
       actions
     end

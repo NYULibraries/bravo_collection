@@ -1,4 +1,4 @@
-class Film < ActiveRecord::Base
+class Film < ApplicationRecord
   has_many :videos
   validates :title, :description, :thumbnail_file_name, :presence => true
   extend FriendlyId
