@@ -17,8 +17,7 @@ build_docker: &build_docker
     name: Build Docker
     command: |
       export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
-      docker-compose build dev
-      docker-compose -f docker-compose.build.yml build
+      docker-compose build deploy
 
 pull_docker: &pull_docker
   run:
@@ -38,6 +37,16 @@ push_docker: &push_docker
 
 version: 2
 jobs:
+  build:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *auth_quay
+      - <<: *build_docker
+      - <<: *pull_docker
+      - <<: *push_docker
+
   deploy-dev:
     <<: *docker-defaults
     steps:
@@ -58,14 +67,19 @@ jobs:
 
 workflows:
   version: 2
-  build-test-and-deploy:
+  build-and-deploy:
     jobs:
+      - build
       - deploy-dev:
+          requires:
+            - build
           filters:
             branches:
               ignore:
                 - master
       - deploy-prod:
+          requires:
+            - build
           filters:
             branches:
               only: master
