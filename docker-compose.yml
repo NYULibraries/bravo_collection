@@ -29,8 +29,8 @@ services:
     command: ["/tmp/wait-for-it.sh", "db:3306", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
     depends_on:
       - setup_dev
-    volumes: 
-      - .:/app
+    # volumes: 
+    #   - .:/app
 
   setup_dev:
     <<: *dev-env
