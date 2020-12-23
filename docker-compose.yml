@@ -1,39 +1,60 @@
 version: '3.7'
+
 x-build: &build
   build:
     context: .
     cache_from:
-      - bravo
-  image: bravo
-  tty: true
-  stdin_open: true
+      - bravo_collection
+      - quay.io/nyulibraries/bravo_collection
+      - quay.io/nyulibraries/bravo_collection:$BRANCH_NO_SLASH
+  image: bravo_collection
 x-dev-env: &dev-env
   <<: *build
   environment:
+    BRANCH_NO_SLASH:
+    CI:
+    TERM: xterm
+    PAGER: more
     BRAVO_COLLECTION_DB_PASSWORD:
-  env_file:
-    - test.env
+    GIT_COMMIT:
+    DEPLOY_ENV:
 
 services:
   dev:
     <<: *dev-env
+    tty: true
+    stdin_open: true
     ports:
       - "3000:3000"
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
     depends_on:
-      - setup_dbs
-    volumes:
+      - setup_dev
+    volumes: 
       - .:/app
 
-  setup_dbs:
+  setup_dev:
     <<: *dev-env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "bundle", "exec", "rake", "db:setup"]
     depends_on:
       - db
 
   db:
-    image: mysql:5.7.22
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    image: library/mysql:5.6.22
     expose:
       - "3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      
+  deploy:
+    <<: *dev-env
+    tty: true
+    stdin_open: true
+    command: "mkdir -p ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan github.com >> ~/.ssh/known_hosts && \
+              bundle exec cap $DEPLOY_ENV deploy:setup && bundle exec cap $DEPLOY_ENV deploy"
+    user: root
+    environment:
+      SSH_AUTH_SOCK: '/ssh-agent'
+      GIT_COMMIT: "$GIT_COMMIT"
+    volumes:
+      - "${HOST_SSH_AUTH_SOCK}:/ssh-agent"
+
