@@ -9,7 +9,7 @@ gem 'active_admin_import' , '2.1.2'
 
 # gem 'sass', '~> 3.4'
 gem 'sass-rails', '~> 5.0.7'
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass', '3.4.1'
 gem 'font-awesome-sass', '~> 4.3.1'
 gem 'uglifier', '~> 2.7.0'
 gem 'jquery-rails', '~> 4.2.0'
