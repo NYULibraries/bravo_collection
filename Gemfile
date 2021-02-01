@@ -29,7 +29,7 @@ group :no_docker do
 end
 
 ## NYU gems
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.8.0'
 
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
