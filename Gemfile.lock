@@ -309,6 +309,7 @@ DEPENDENCIES
   jquery-rails (~> 4.2.0)
   listen (~> 3.1.5)
   mysql2 (~> 0.4.10)
+  nokogiri (~> 1)
   nyulibraries_errors!
   paperclip (~> 5.2.0)
   rails (~> 5.2.3)
