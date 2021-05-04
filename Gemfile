@@ -24,6 +24,8 @@ gem 'listen', '~> 3.1.5'
 # gem 'turbolinks', '2.5.3'
 # gem 'seed_dump'
 
+gem 'nokogiri', '~> 1', platforms: :ruby
+
 group :no_docker do
   gem 'therubyracer', '~> 0.12.3', platforms: :ruby
 end
